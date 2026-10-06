@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.37710.0 d17.14
+# Visual Studio Version 18
+VisualStudioVersion = 18.10.12224.181 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XumChustka.Domain", "XumChustka.Domain\XumChustka.Domain.csproj", "{02DC9C72-7777-4D3D-8924-F148D72ECB61}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XumChustka.Tests", "XumChustka.Tests\XumChustka.Tests.csproj", "{580EDB32-560C-4AD2-B493-1B8A4B2C5402}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XumChustka.Api", "XumChustka.Api\XumChustka.Api.csproj", "{0D493E97-7F88-4C49-BAE5-1DFA692ED5D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{580EDB32-560C-4AD2-B493-1B8A4B2C5402}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{580EDB32-560C-4AD2-B493-1B8A4B2C5402}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{580EDB32-560C-4AD2-B493-1B8A4B2C5402}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D493E97-7F88-4C49-BAE5-1DFA692ED5D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D493E97-7F88-4C49-BAE5-1DFA692ED5D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D493E97-7F88-4C49-BAE5-1DFA692ED5D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D493E97-7F88-4C49-BAE5-1DFA692ED5D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
