@@ -63,7 +63,7 @@ public static class DataTest
     };
 
     /// <summary>
-    /// 10 Заказов
+    /// 12 Заказов
     /// </summary>
     public static readonly List<Order> Orders = new()
     {
