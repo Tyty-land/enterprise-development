@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace XumChustka.Domain.Models;
+﻿namespace DryCleaning.Domain.Models;
 
 /// <summary>
 /// Изделие
@@ -15,12 +11,12 @@ public class Item
     /// <summary>
     /// Наименование
     /// </summary>
-    public string Name { get; set; } = string.Empty;
+    public required string Name { get; set; }
 
     /// <summary>
     /// Материал
     /// </summary>
-    public string Material { get; set; } = string.Empty;
+    public required string Material { get; set; }
 
     /// <summary>
     /// Id-категории
@@ -30,5 +26,5 @@ public class Item
     /// <summary>
     /// Категория
     /// </summary>
-    public Category Category { get; set; } = null!;
+    public required Category Category { get; set; }
 }

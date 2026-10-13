@@ -11,18 +11,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v6
       with:
         dotnet-version: '10.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore XumChustka/XumChustka.sln
+      run: dotnet restore DryCleaning/DryCleaning.sln
 
     - name: Build
-      run: dotnet build XumChustka/XumChustka.sln --no-restore
+      run: dotnet build DryCleaning/DryCleaning.sln --no-restore
 
     - name: Test
-      run: dotnet test XumChustka/XumChustka.sln --no-build --verbosity normal
+      run: dotnet test DryCleaning/DryCleaning.sln --no-build --verbosity normal

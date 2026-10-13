@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace XumChustka.Domain.Models;
+﻿namespace DryCleaning.Domain.Models;
 
 /// <summary>
 /// Категория изделия
@@ -15,12 +11,12 @@ public class Category
     /// <summary>
     /// Название категории
     /// </summary>
-    public string Name { get; set; } = string.Empty;
+    public required string Name { get; set; }
 
     /// <summary>
     /// Рекомендуемый вид чистки
     /// </summary>
-    public string CleaningType { get; set; } = string.Empty;
+    public required string CleaningType { get; set; }
 
     /// <summary>
     /// Стоимость чистки за единицу
