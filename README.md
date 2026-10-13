@@ -15,7 +15,7 @@
 
 ### Хранение данных:
 * Хранение данных организовано в оперативной памяти через сервис `InMemStore`, зарегистрированный в DI-контейнере с жизненным циклом **Singleton**.
-* При старте приложения хранилище инициализируется тестовыми данными (10 категорий, 10 клиентов, 10 изделий, 12 заказов).
+* При старте приложения хранилище инициализируется тестовыми данными (10 категорий, 10 клиентов, 10 изделий, 15 заказов).
 
 ### Реализованные CRUD-контроллеры:
 Контроллеры поддерживают стандартные HTTP-методы (GET, POST, PUT, DELETE) и возвращают корректные статус-коды (200 OK, 201 Created, 204 NoContent, 400 BadRequest, 404 NotFound):
@@ -38,11 +38,11 @@
 
 1. **Запуск Web API сервера:**
 ```bash
-dotnet run --project XumChustka/XumChustka.Api/XumChustka.Api.csproj
+dotnet run --project DryCleaning/DryCleaning.Api/DryCleaning.Api.csproj
 ```
 После запуска эндпоинты доступны по адресу: `https://localhost:<порт>/api/...`.
 
 2. **Запуск модульных тестов:**
 ```bash
-dotnet test XumChustka/XumChustka.sln
+dotnet test DryCleaning/DryCleaning.sln
 ```

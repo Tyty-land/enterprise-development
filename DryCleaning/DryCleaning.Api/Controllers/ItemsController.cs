@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using XumChustka.Api.Services;
-using XumChustka.Domain.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using DryCleaning.Api.Services;
+using DryCleaning.Domain.Models;
 
-namespace XumChustka.Api.Controllers;
+namespace DryCleaning.Api.Controllers;
 
 
 /// <summary>

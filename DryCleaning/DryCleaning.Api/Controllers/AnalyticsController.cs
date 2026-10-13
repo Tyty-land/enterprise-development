@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using XumChustka.Api.Services;
-using XumChustka.Domain.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using DryCleaning.Api.Services;
+using DryCleaning.Domain.Models;
 
-namespace XumChustka.Api.Controllers;
+namespace DryCleaning.Api.Controllers;
 
 /// <summary>
 /// Контроллер аналитических выборок
@@ -39,8 +38,8 @@ public class AnalyticsController : ControllerBase
     [HttpGet("top-clients")]
     public IActionResult GetTopClients([FromQuery] DateTime? startDate, [FromQuery] DateTime? endDate)
     {
-        var from = startDate ?? DateTime.Today.AddDays(-30);
-        var to = endDate ?? DateTime.Today;
+        var from = startDate ?? InMemStore.BaseDate.AddDays(-30);
+        var to = endDate ?? InMemStore.BaseDate;
 
         var result = _store.Orders
             .Where(o => o.AcceptDate >= from && o.AcceptDate <= to)
@@ -74,7 +73,7 @@ public class AnalyticsController : ControllerBase
             .Where(o => o.ExeDays == maxDays)
             .Select(o => o.Client)
             .Distinct()
-            .OrderBy(c => c.FIO)
+            .OrderBy(c => c.FullName)
             .ToList();
 
         return Ok(result);
@@ -86,7 +85,7 @@ public class AnalyticsController : ControllerBase
     [HttpGet("categories-popularity")]
     public IActionResult GetCategoriesPopularity()
     {
-        var oneYearAgo = DateTime.Today.AddDays(-365);
+        var oneYearAgo = InMemStore.BaseDate.AddDays(-365);
 
         var categoryPopularity = _store.Orders
             .Where(o => o.AcceptDate >= oneYearAgo)
@@ -116,25 +115,30 @@ public class AnalyticsController : ControllerBase
     }
 
     /// <summary>
-    /// Запрос 5: Клиент, потративший наибольшую сумму за весь период
+    /// Запрос 5: Клиенты, потратившие наибольшую сумму за весь период (с поддержкой нескольких лидеров)
     /// </summary>
     [HttpGet("top-spending-client")]
     public IActionResult GetTopSpendingClient()
     {
-        var result = _store.Orders
+        var clientSpending = _store.Orders
             .GroupBy(o => o.Client)
             .Select(group => new
             {
                 Client = group.Key,
                 TotalSpent = group.Sum(o => o.Item.Category.Price)
             })
-            .OrderByDescending(x => x.TotalSpent)
-            .FirstOrDefault();
+            .ToList();
 
-        if (result == null)
+        if (!clientSpending.Any())
         {
             return NotFound(new { message = "Заказы отсутствуют" });
         }
+
+        var maxSpent = clientSpending.Max(x => x.TotalSpent);
+        var result = clientSpending
+            .Where(x => x.TotalSpent == maxSpent)
+            .OrderBy(x => x.Client.FullName)
+            .ToList();
 
         return Ok(result);
     }
