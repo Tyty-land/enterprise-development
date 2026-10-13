@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace XumChustka.Domain.Models;
+﻿namespace DryCleaning.Domain.Models;
 
 /// <summary>
 /// Заказ
@@ -20,7 +16,7 @@ public class Order
     /// <summary>
     /// Информация клиента
     /// </summary>
-    public Client Client { get; set; } = null!;
+    public required Client Client { get; set; }
 
     /// <summary>
     /// Id-изделия
@@ -30,7 +26,7 @@ public class Order
     /// <summary>
     /// Информация изделия
     /// </summary>
-    public Item Item { get; set; } = null!;
+    public required Item Item { get; set; }
 
     /// <summary>
     /// Дата приема заказа

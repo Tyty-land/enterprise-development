@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace XumChustka.Domain.Models;
+﻿namespace DryCleaning.Domain.Models;
 
 /// <summary>
 /// Клиент
@@ -15,10 +11,10 @@ public class Client
     /// <summary>
     /// ФИО клиента
     /// </summary>
-    public string FIO { get; set; } = string.Empty;
+    public required string FullName { get; set; }
 
     /// <summary>
     /// Номер телефона
     /// </summary>
-    public string PhoneNumber { get; set; } = string.Empty;
+    public required string PhoneNumber { get; set; }
 }
